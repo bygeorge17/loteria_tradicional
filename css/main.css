@@ -1,129 +1,203 @@
-.agregar{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 405px;
-    width: 240px;
-    background: darkgray;
-    cursor: pointer;
-    transition: box-shadow 0.2s;
-    margin-bottom: 50px;
+.agregar {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 160px;
+  width: 120px;
+  background: darkgray;
+  cursor: pointer;
+  transition: box-shadow 0.2s;
+  margin-bottom: 50px;
 }
-.agregar:hover { 
-    box-shadow: black 20px 20px 20px;
+.agregar:hover {
+  box-shadow: black 20px 20px 20px;
 }
-.agregar i{
-    font-size: 8em;
+.agregar i {
+  font-size: 3em;
 }
-.carta{
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    grid-template-rows: repeat(4,1fr);
-    width: 240px;
-    box-shadow: cadetblue 15px 15px 15px;
-    border: darkblue 5px solid;
-    margin-right: 25px;
+.carta {
+cursor: pointer;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(4, 1fr);
+  width: 120px;
+  box-shadow: cadetblue 15px 15px 15px;
+  margin-top: 5px;
 }
-.barajaCarta{
-    position: relative;
-    width: 60px;
-    overflow: hidden;
+.barajaCarta {
+  position: relative;
+  width: 30px;
+  overflow: hidden;
 }
-.container{
-    margin: 0 auto;
-    width: 100vw;
+.cartaM {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(4, 1fr);
+  width: 320px;
+  box-shadow: cadetblue 15px 15px 15px;
+  margin-top: 5px;
 }
-.mazo{
-    margin: 0 auto;
-    cursor: pointer;
-    background-color: black;
-    grid-area: mazo;
-    box-shadow: skyblue 15px 15px 5px;
+.barajaCartaMaximizada {
+  position: relative;
+  width: 80px;
+  overflow: hidden;
 }
-.mazo img{
-    width: 110px;
-    height: 190px;
+.tachadoMaximizado {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  height: 126px;
+  width: 80px;
+  top: 0px;
+  left: 0px;
+  color: rgb(255, 0, 0);
+  background-color: rgba(255, 255, 255, 0.603);
 }
-.contenedorMazo{
-    display: grid;
-    grid-template-areas: "mazo actual";
-    width: 10vw;
-    gap: 25px;
+.tachadoMaximizado h1 {
+  font-size: 3.5rem;
 }
-
-.barajaActual{
-    grid-area: actual;
+.tachado {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  height: 47px;
+  width: 30px;
+  top: 0px;
+  left: 0px;
+  color: rgb(255, 0, 0);
+  background-color: rgba(255, 255, 255, 0.603);
 }
-.barajaActual img{
-    height: 190px;
-    width: 110px;
-    box-shadow: skyblue 15px 15px 5px;
-}
-.barajaCorriendo{
-    height: 40px;
-}
-.corridas{
-    margin: 50px 0 50px 50px;
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(50px, 1fr));
-}
-.corridas div:hover{
-    transform: scale(300%);
-    margin-right: 50px;
-}
-.corridas{
-    transform: scale 0.5s ease;
-}
-.baraja-carta{
-    position: relative;
-    overflow: hidden;
-}
-.tachado{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    position: absolute;
-    height: 100px;
-    width: 60px;
-    top: 0px;
-    left: 0px;
-    color: red;
-    background-color: rgba(98, 143, 180, 0.3);
-}
-.tachado h1{
-    font-size: 2.5rem;
-}
-
-.todas{
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
-    gap: 15px;
+.tachado h1 {
+  font-size: 1.5rem;
 }
 .acciones {
-    display: flex;
-    justify-content: center;
-    align-content: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: rgb(65, 64, 63);
+  width: 120;
+}
+.acciones i {
+  color: red;
+  font-size: 2em;
+  transition: text-shadow 0.2s ease;
+}
+.acciones i:hover {
+  color: orangered;
+  cursor: pointer;
+  text-shadow: maroon 5px 5px 3px;
+}
+.container {
+  margin: 20px;
+  width: 100vw;
+}
+.mazo {
+  margin: 0 auto;
+  cursor: pointer;
+  background-color: black;
+  grid-area: mazo;
+  box-shadow: skyblue 15px 15px 5px;
+}
+.mazo img {
+  width: 110px;
+  height: 190px;
+}
+.contenedorMazo {
+  display: grid;
+  grid-template-areas: "mazo actual";
+  width: 10vw;
+  gap: 25px;
+}
+
+.barajaActual {
+  grid-area: actual;
+}
+.barajaActual img {
+  height: 190px;
+  width: 110px;
+  box-shadow: skyblue 15px 15px 5px;
+}
+.barajaCorriendo {
+margin: 2px;
+  height: 45px;
+}
+.corridas {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  color: brown;
+  display: grid;
+  grid-template-columns: repeat(15, 25px);
+  gap: 2px;
+}
+.corridas div:hover {
+  transform: scale(300%);
+  margin-right: 50px;
+}
+.corridas {
+  transform: scale 0.5s ease;
+}
+.baraja-carta {
+  position: relative;
+  overflow: hidden;
+}
+
+.todas {
+  display: grid;
+  grid-template-columns: repeat(10, 120px);
+  gap: 10px;
+  width: 1350px;
+  height: 500px;
+  overflow: scroll;
+}
+.nombre {
+  display: flex;
+  color: seashell;
+  background: rgb(219, 90, 15);
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  font-size: small;
+}
+.separacion {
+  padding: 15px;
+}
+.controles {
+  margin-left: 50px;
+  margin-top: 50px;
+  width: 1200px;
+  display: grid;
+  grid-auto-flow: column;
+  gap: 20px;
+}
+
+.modal {
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.7);
+}
+
+.modal-contenido {
+    background-color: #fff;
+    margin: auto auto;
     padding: 20px;
-    background: burlywood;
+    border: 1px solid #888;
+    width: 80%;
+    max-width: 320px;
+    position: relative;
 }
-.acciones i:hover{
-    color: orangered;
+
+.cerrar {
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: 10px;
     cursor: pointer;
-    text-shadow: maroon 5px 5px 3px;
-}
-.acciones i{
-    padding-left: 20px;
-    font-size: 2em;
-    transition: text-shadow .2s ease;
-}
-.nombre{
-    display: flex;
-    color: seashell;
-    background: rgb(219, 90, 15);
-    justify-content: center;
-    align-content: center;
-    cursor: pointer;
-}
-.separacion{
-    padding: 15px;
+    font-size: large;
+    font-weight: bold;
 }
