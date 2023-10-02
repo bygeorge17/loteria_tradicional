@@ -21,21 +21,20 @@ new Vue({
     actual: "",
     ganadores: [],
     cartaMaximizada: [],
-    verCartaMaximizada:false,
+    verCartaMaximizada: false,
   },
   methods: {
     maximizarCarta: function (carta) {
-    this.cartaMaximizada=carta;
-    this.verCartaMaximizada=true;
-    console.log(this.verCartaMaximizada);
-    console.log(this.cartaMaximizada);
+      this.cartaMaximizada = carta;
+      this.verCartaMaximizada = true;
+      console.log(this.verCartaMaximizada);
+      console.log(this.cartaMaximizada);
     },
-    cerrarModal:function () {
-      this.verCartaMaximizada=false;
-      this.cartaMaximizada=[];  
+    cerrarModal: function () {
+      this.verCartaMaximizada = false;
+      this.cartaMaximizada = [];
     },
     limpiar: function () {
-      console.log();
       if (
         this.pasando.length > 0 &&
         confirm("Esta seguro de que desea comenzar un nuevo juego?")
@@ -54,6 +53,7 @@ new Vue({
           }
         }
       }
+      this.barajar();
     },
     eliminar: function (indice, jugador) {
       let confirmed = confirm(`Esta Seguro que quiere eliminar a ${jugador}`);
@@ -63,8 +63,9 @@ new Vue({
       window.localStorage.setItem("cartas", JSON.stringify(this.cartas));
     },
     correr: function () {
-      if (this.ganadores.length == 0) {
-      }
+      // if (this.ganadores.length == 0) {
+      // console.log(this.ganadores.length);
+      // }
       if (this.cartas.length < 2) {
         alert("Agrega mas jugadores para empezar a correr la baraja");
       } else {
@@ -90,6 +91,9 @@ new Vue({
               this.ganadores.push(this.cartas[index].jugador);
             }
           }
+        } else {
+          console.log("A ver a ver, que paso aqui?");
+          console.log(this.barajas.length);
         }
         if (this.ganadores.length > 0) {
           if (this.ganadores.length == 1) {
