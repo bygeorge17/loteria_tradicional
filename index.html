@@ -1,98 +1,139 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Loteria</title>
-    <link rel="stylesheet" href="css/main.css" />
-    <script
-      src="https://kit.fontawesome.com/cd65b026a0.js"
-      crossorigin="anonymous"
-    ></script>
-  </head>
-  <body>
-    <div id="loteria">
-      <!-- Carta Maximizada -->
-      <div id="miModal" class="modal" v-if="verCartaMaximizada">
-        <div class="modal-contenido">
-          <span class="cerrar" id="cerrarModal" @click="cerrarModal"
-            >&times;</span
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Loteria</title>
+  <link rel="stylesheet" href="css/main.css" />
+  <script
+  src="https://kit.fontawesome.com/cd65b026a0.js"
+  crossorigin="anonymous"
+  ></script>
+</head>
+<body>
+  <div id="loteria">
+    <!-- Carta Maximizada -->
+    <div id="miModal" class="modal" v-if="verCartaMaximizada">
+      <div class="modal-contenido">
+        <span class="cerrar" id="cerrarModal" @click="cerrarModal"
+        >&times;</span
+        >
+        <h2>{{cartaMaximizada.jugador}}</h2>
+        <div class="cartaM cartaM2">
+          
+          <div
+          v-for="(barajaCartaJugador, index) in cartaMaximizada.carta"
+          class="barajaCartaMaximizada bcm"
           >
-          <h2>{{cartaMaximizada.jugador}}</h2>
-          <div class="cartaM">
-            
-            <div
-              v-for="(barajaCartaJugador, index) in cartaMaximizada.carta"
-              class="barajaCartaMaximizada"
-            >
-              <img
-                :src="barajaCartaJugador.baraja"
-                alt=""
-                class="barajaCartaMaximizada"
-              />
-              <div class="tachadoMaximizado" v-show="barajaCartaJugador.paso">
-                <h1><i class="fas fa-times-circle"></i></h1>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <!-- Carta Maximizada -->
-
-      <div class="controles">
-        <div class="agregar" @click="nuevoJugador">
-          <i class="fas fa-plus-circle"></i>
-        </div>
-        <div class="agregar" @click="limpiar">
-          <i class="fas fa-repeat"></i>
-        </div>
-
-        <div class="contenedorMazo">
-          <div class="mazo" @click="correr">
-            <img src="img/reverso.png" alt="" srcset="" />
-          </div>
-          <div class="barajaActual">
-            <img :src="actual" alt="" />
-          </div>
-        </div>
-        <div class="corridas">
-          <div v-for="barajaCarta in pasando" class="barajaCorriendo">
-            <img :src="barajaCarta" alt="" class="barajaCorriendo" />
-          </div>
-        </div>
-      </div>
-      <div class="container">
-        <div class="todas">
-          <div v-for="(carta,index) in cartas">
-            <div class="acciones">
-              <i
-                class="fas fa-minus-circle"
-                @click="eliminar(index,carta.jugador)"
-              ></i>
-            </div>
-            <div class="carta" @click="maximizarCarta(carta)">
-              <div
-                v-for="(barajaCartaJugador, index) in carta.carta"
-                class="barajaCarta"
-              >
-                <img
-                  :src="barajaCartaJugador.baraja"
-                  alt=""
-                  class="barajaCarta"
-                />
-                <div class="tachado" v-show="barajaCartaJugador.paso">
-                  <h1><i class="fas fa-times-circle"></i></h1>
-                </div>
-              </div>
-            </div>
-            <h1 class="nombre" @click="cambiarNombre(index)">
-              <i class="fas fa-user-circle separacion"></i>{{carta.jugador}}
-            </h1>
+          <img
+          :src="barajaCartaJugador.baraja"
+          alt=""
+          class="barajaCartaMaximizada bcm"
+          />
+          <div class="tachadoMaximizado bcm" v-show="barajaCartaJugador.paso">
+            <h1><i class="fas fa-times-circle"></i></h1>
           </div>
         </div>
       </div>
     </div>
-    <script src="js/vue2.js"></script>
-    <script src="js/main.js"></script>
-  </body>
+  </div>
+  <!-- Carta Maximizada -->
+  
+  <div class="controles">
+    <div class="tipos">
+      <!-- <div class="agregar ultimaCarta" @click="cambiarTablaSize(1)">
+        <p>ultima carta</p>
+      </div> -->
+      <div class="tablas">
+        <div id="2x2" class="agregar tabla" @click="cambiarTablaSize(4)">
+          <p>2x2</p>
+        </div>
+        <div id="3x3" class="agregar tabla" @click="cambiarTablaSize(9)">
+          <p>3x3</p>
+        </div>
+        <div id="4x4" class="agregar tabla" @click="cambiarTablaSize(16)">
+          <p>4x4</p>
+        </div>
+
+      </div>
+    </div>
+
+
+    <div class="iconos">      
+      <div class="agregar" @click="nuevoJugador">
+        <i class="fas fa-plus-circle"></i>
+      </div>
+      <div class="agregar" @click="limpiar">
+        <i class="fas fa-repeat"></i>
+      </div>
+      <div  id="llena" class="agregar condicion" @click="condicion('llena')">
+        <p>llena</p>
+      </div>
+      <div  id="linea" class="agregar condicion" @click="condicion('linea')">
+        <p>linea</p>
+      </div>
+      <div  id="quince" class="agregar condicion" @click="condicion('quince')">
+        <p>quince</p>
+      </div>
+      <div  id="ambo" class="agregar condicion" @click="condicion('ambo')">
+        <p>ambo</p>
+      </div>
+    </div>
+    
+    <div class="contenedorMazo">
+      <div class="mazo" @click="correr">
+        <img src="img/reverso.webp" alt="" srcset="" />
+      </div>
+    </div>
+
+    <div class="corridas">
+      <div>
+        <img :src="actual" class="actual">
+      </div>
+      <div  class="contenedorBarajasCorriendo">
+        <div v-for="(barajaCarta,index) in pasando">
+          <img :style="getRandomRotation()" :src="barajaCarta" alt="" class="barajaCorriendo" style="z-index:index"/>
+        </div>
+      </div>
+    </div>
+
+    <div class="ganadores">
+      <div class="ganador" v-for="ganador in ganadores">
+        <h4>{{ganador.condicion}} - {{ganador.jugador}} </h4>
+      </div>
+    </div>
+    
+  </div>
+  <div class="todas">
+    <div v-for="(carta,index) in cartas">
+      <div class="acciones">
+        <i
+        class="fas fa-minus-circle"
+        @click="eliminar(index,carta.jugador)"
+        ></i>
+      </div>
+      <div class="carta gridTabla" @click="maximizarCarta(carta)">
+        <div
+        v-for="(barajaCartaJugador, index) in carta.carta"
+        class="barajaCarta elementoTabla"
+        >
+        <img
+        :src="barajaCartaJugador.baraja"
+        alt=""
+        class="barajaCarta elementoTabla"
+        />
+        <div class="tachado elementoTabla" v-show="barajaCartaJugador.paso">
+          <h1><i class="fas fa-times-circle"></i></h1>
+        </div>
+      </div>
+    </div>
+    <h1 class="nombre" @click="cambiarNombre(index)">
+      <i class="fas fa-user-circle separacion"></i>{{carta.jugador}}
+    </h1>
+  </div>
+</div>
+</div>
+<script src="js/vue2.js"></script>
+<script src="js/main.js"></script>
+</body>
 </html>

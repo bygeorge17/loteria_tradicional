@@ -1,61 +1,188 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+
+body {
+  font-family: 'Poppins', sans-serif;
+  color: #333;
+  margin: 0;
+  padding: 0;
+  background-image: url('../img/background.webp');
+  background-size: cover;
+}
 .agregar {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 160px;
-  width: 120px;
-  background: darkgray;
+  height: 70px;
+  width: 60px;
+  background: linear-gradient(145deg, #4e73df, #2e59d9);
+  color: white;
   cursor: pointer;
-  transition: box-shadow 0.2s;
-  margin-bottom: 50px;
+  transition: all 0.3s ease;
+  border-radius: 12px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
 }
 .agregar:hover {
-  box-shadow: black 20px 20px 20px;
+  transform: scale(1.05);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
 }
+.condicion{
+  background: linear-gradient(145deg, #d3cbdb, #8d9ed1);
+}
+.condicion:nth-child(3){
+  background: linear-gradient(145deg, #086125, #57ce7f);
+}
+.controles{
+  margin: 0 auto;
+  height: 260px;
+  width: 970px;
+  display: grid;
+  grid-template-columns:250px 130px 60px 420px 200px;
+  justify-items: center;
+  align-items: center;
+  gap:5px;
+}
+.tipos{
+  display: flex;
+  flex-flow: row;
+  width: 210px;
+  height: 260px;
+  justify-content: space-between;
+}
+
+.ultimaCarta{
+  width: 100px;
+  height: 100px;
+  justify-self: center;
+  align-self: center;
+}
+.tablas{
+  width: 100px;
+  height: 260px;
+  display: grid;
+  gap: 10px;
+  align-items: center;
+}
+.tabla{
+  width: 100px;
+}  
+.iconos{
+  width: 130px;
+  height: 250px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 5px;
+}
+.contenedorMazo{
+  align-self: center;
+  justify-self: center;
+  width: 60px;
+  height: 250px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 5px;
+}
+.corridas{
+  display: grid;
+  grid-auto-flow: row;
+  grid-template-columns: 80px 520px;
+  gap: 50px;
+  width: 420px;
+  height: 260px;
+}
+.ganadores{
+  width: 200px;
+  background-color: #d3cbdb;
+  color: #2e59d9;
+}
+#loteria{
+  margin:1vh auto;
+  padding: 40px;
+  width: 90vw;
+  height: 85vh;
+  background: rgba(0,0,0,0.8);
+}
+
 .agregar i {
-  font-size: 3em;
+  font-size: 1.6em;
+}
+.contenedorBarajasCorriendo{
+  position: relative;
+  width: 320px;
+  height: 260;
+}
+.barajaCorriendo{
+  border: solid 5px #fff;
+}
+.actual{
+  border: solid 7px #fff;
+  width: 80px;
 }
 .carta {
-cursor: pointer;
+  background-color: #fff;
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  grid-template-rows: repeat(4, 1fr);
-  width: 120px;
-  box-shadow: cadetblue 15px 15px 15px;
+  width: 130px;
+  height: 232px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  border-radius: 2px;
+  overflow: hidden;
   margin-top: 5px;
+  cursor: pointer;
+  justify-content: center;
+  align-items: center;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
+.carta:hover {
+  transform: scale(1.02);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
 .barajaCarta {
   position: relative;
-  width: 30px;
-  overflow: hidden;
+  border-radius: 4px;
+  transition: all 0.2s ease;
 }
-.cartaM {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  grid-template-rows: repeat(4, 1fr);
-  width: 320px;
-  box-shadow: cadetblue 15px 15px 15px;
-  margin-top: 5px;
-}
+
 .barajaCartaMaximizada {
   position: relative;
-  width: 80px;
+  width: 70px;
   overflow: hidden;
+  border-radius: 4px;
+  transition: all 0.2s ease;
 }
+
+
+.cartaM {
+  display: grid;
+  width: 300px;
+  border-radius: 7px;
+  border: solid #333 3px;
+  box-shadow: 0 8px 20px rgba(255,255,255,0.8);
+  padding: 10px;
+}
+
 .tachadoMaximizado {
   display: flex;
   justify-content: center;
   align-items: center;
   position: absolute;
-  height: 126px;
-  width: 80px;
+  height: 110px;
+  width: 70px;
   top: 0px;
   left: 0px;
-  color: rgb(255, 0, 0);
-  background-color: rgba(255, 255, 255, 0.603);
+  color: white;
+  background-color: rgba(220, 53, 69, 0.7);
+  border-radius: 4px;
 }
 .tachadoMaximizado h1 {
-  font-size: 3.5rem;
+  font-size: 2.5rem;
+}
+
+.fa-minus-circle{
+  cursor: pointer;
+  color: red;
+
 }
 .tachado {
   display: flex;
@@ -66,138 +193,104 @@ cursor: pointer;
   width: 30px;
   top: 0px;
   left: 0px;
-  color: rgb(255, 0, 0);
-  background-color: rgba(255, 255, 255, 0.603);
+  color: white;
+  background-color: rgba(220, 53, 69, 0.7);
+  border-radius: 4px;
 }
 .tachado h1 {
-  font-size: 1.5rem;
+  font-size: 1rem;
 }
-.acciones {
+.todas{
   display: flex;
-  justify-content: center;
-  align-items: center;
-  background: rgb(65, 64, 63);
-  width: 120;
-}
-.acciones i {
-  color: red;
-  font-size: 2em;
-  transition: text-shadow 0.2s ease;
-}
-.acciones i:hover {
-  color: orangered;
-  cursor: pointer;
-  text-shadow: maroon 5px 5px 3px;
-}
-.container {
-  margin: 20px;
-  width: 100vw;
-}
-.mazo {
-  margin: 0 auto;
-  cursor: pointer;
-  background-color: black;
-  grid-area: mazo;
-  box-shadow: skyblue 15px 15px 5px;
-}
-.mazo img {
-  width: 110px;
-  height: 190px;
-}
-.contenedorMazo {
-  display: grid;
-  grid-template-areas: "mazo actual";
-  width: 10vw;
-  gap: 25px;
-}
-
-.barajaActual {
-  grid-area: actual;
-}
-.barajaActual img {
-  height: 190px;
-  width: 110px;
-  box-shadow: skyblue 15px 15px 5px;
-}
-.barajaCorriendo {
-margin: 2px;
-  height: 45px;
-}
-.corridas {
-  margin-top: 10px;
-  margin-bottom: 10px;
-  color: brown;
-  display: grid;
-  grid-template-columns: repeat(15, 25px);
-  gap: 2px;
-}
-.corridas div:hover {
-  transform: scale(300%);
-  margin-right: 50px;
-}
-.corridas {
-  transform: scale 0.5s ease;
-}
-.baraja-carta {
-  position: relative;
-  overflow: hidden;
-}
-
-.todas {
-  display: grid;
-  grid-template-columns: repeat(10, 120px);
+  flex-direction: row;
+  flex-wrap: wrap;
   gap: 10px;
-  width: 1350px;
-  height: 500px;
-  overflow: scroll;
+  margin-top: 50px;
 }
 .nombre {
+  width: 120px;
   display: flex;
-  color: seashell;
-  background: rgb(219, 90, 15);
+  gap: 5px;
+  color: white;
+  background: #f4a261;
   justify-content: center;
   align-items: center;
   cursor: pointer;
-  font-size: small;
+  font-size: 0.9rem;
+  border-radius: 4px;
+  padding: 10px;
+  transition: background-color 0.3s ease;
 }
-.separacion {
-  padding: 15px;
-}
-.controles {
-  margin-left: 50px;
-  margin-top: 50px;
-  width: 1200px;
-  display: grid;
-  grid-auto-flow: column;
-  gap: 20px;
+.nombre:hover {
+  background: #e76f51;
 }
 
 .modal {
-    position: fixed;
-    z-index: 1;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0,0,0,0.7);
+  padding: 10px;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.8);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  animation: fadeIn 0.3s ease-in-out;
 }
 
 .modal-contenido {
-    background-color: #fff;
-    margin: auto auto;
-    padding: 20px;
-    border: 1px solid #888;
-    width: 80%;
-    max-width: 320px;
-    position: relative;
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 16px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+  width: 90vw;
+  max-width: 320px;
+  position: relative;
+  animation: slideIn 0.3s ease-out;
 }
 
 .cerrar {
-    position: absolute;
-    top: 0;
-    right: 0;
-    padding: 10px;
-    cursor: pointer;
-    font-size: large;
-    font-weight: bold;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  cursor: pointer;
+  font-size: 1.5rem;
+  color: #555;
+  transition: color 0.3s ease;
+}
+.cerrar:hover {
+  color: #e76f51;
+}
+
+@keyframes fadeIn {
+  from {
+    background-color: rgba(0, 0, 0, 0);
+  }
+  to {
+    background-color: rgba(0, 0, 0, 0.8);
+  }
+}
+
+@keyframes slideIn {
+  from {
+    transform: translateY(-20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+
+.mazo {
+  margin: 0 auto;
+  cursor: pointer;
+  grid-area: mazo;
+}
+.mazo img {
+  width: 60px;
+  aspect-ratio: 9/16;
 }
